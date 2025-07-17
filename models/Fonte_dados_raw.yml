@@ -4,31 +4,35 @@ sources:
     database: adventureworks
     schema: ingest
     tables: 
-      - name: person__countryregion
+      - name: RAW_Person_CountryRegion
         columns:
           - name: COUNTRYREGIONCODE
             tests: 
               - unique
               - not_null              
-      - name: person__stateprovince
+
+      - name: RAW_Person_StateProvince
         columns:
           - name: STATEPROVINCEID
             tests: 
               - unique
               - not_null   
-      - name: person__address
+
+      - name: RAW_Person_Address
         columns:
           - name: ADDRESSID
             tests: 
               - unique
               - not_null  
-      - name: sales__salesreason
+
+      - name: RAW_Sales_SalesReason
         columns:
           - name: SALESREASONID
             tests: 
               - unique
               - not_null   
-      - name: sales__salesorderheadersalesreason
+
+      - name: RAW_Sales_SalesOrderHeaderSalesReason
         columns:
           - name: SALESORDERID
             tests: 
@@ -36,69 +40,80 @@ sources:
           - name: SALESREASONID
             tests: 
               - not_null  
-      - name: production__product
+
+      - name: RAW_Production_Product
         columns:
           - name: PRODUCTID
             tests: 
               - unique
               - not_null  
-      - name: production__productcategory
+
+      - name: RAW_Production_ProductCategory
         columns:
           - name: PRODUCTCATEGORYID
             tests: 
               - unique
               - not_null  
-      - name: production__productsubcategory
+
+      - name: RAW_Production_ProductSubcategory
         columns:
           - name: PRODUCTSUBCATEGORYID
             tests: 
               - unique
               - not_null  
-      - name: sales__creditcard
+
+      - name: RAW_Sales_CreditCard
         columns:
           - name: CREDITCARDID
             tests: 
               - unique
               - not_null
-      - name: person__person
+
+      - name: RAW_Person_Person
         columns:
           - name: BUSINESSENTITYID
             tests: 
               - unique
               - not_null
-      - name: sales__customer
+
+      - name: RAW_Sales_Customer
         columns:
           - name: CUSTOMERID
             tests: 
               - unique
               - not_null
-      - name: humanresources__employee
+
+      - name: RAW_HumanResources_Employee
         columns:
           - name: BUSINESSENTITYID
             tests: 
               - unique
               - not_null
-      - name: sales__salesorderheader
+
+      - name: RAW_Sales_SalesOrderHeader
         columns:
           - name: SALESORDERID
             tests: 
               - unique
               - not_null
-      - name: sales__salesorderdetail
+
+      - name: RAW_Sales_SalesOrderDetail
         columns:
           - name: SALESORDERDETAILID
             tests: 
               - unique
               - not_null
-      - name: sales__salesperson
+
+      - name: RAW_Sales_SalesPerson
         columns:
           - name: BUSINESSENTITYID
             tests: 
               - unique
               - not_null
-      - name: sales__salesterritory
+
+      - name: RAW_Sales_SalesTerritory
         columns:
-          - name: TERRITOYYID
+          - name: TERRITOYYID  
             tests: 
               - unique
               - not_null
