@@ -1,0 +1,104 @@
+sources:
+  - name: erp
+    description: "Dados brutos do Raw Adventure Works"
+    database: adventureworks
+    schema: ingest
+    tables: 
+      - name: person__countryregion
+        columns:
+          - name: COUNTRYREGIONCODE
+            tests: 
+              - unique
+              - not_null              
+      - name: person__stateprovince
+        columns:
+          - name: STATEPROVINCEID
+            tests: 
+              - unique
+              - not_null   
+      - name: person__address
+        columns:
+          - name: ADDRESSID
+            tests: 
+              - unique
+              - not_null  
+      - name: sales__salesreason
+        columns:
+          - name: SALESREASONID
+            tests: 
+              - unique
+              - not_null   
+      - name: sales__salesorderheadersalesreason
+        columns:
+          - name: SALESORDERID
+            tests: 
+              - not_null  
+          - name: SALESREASONID
+            tests: 
+              - not_null  
+      - name: production__product
+        columns:
+          - name: PRODUCTID
+            tests: 
+              - unique
+              - not_null  
+      - name: production__productcategory
+        columns:
+          - name: PRODUCTCATEGORYID
+            tests: 
+              - unique
+              - not_null  
+      - name: production__productsubcategory
+        columns:
+          - name: PRODUCTSUBCATEGORYID
+            tests: 
+              - unique
+              - not_null  
+      - name: sales__creditcard
+        columns:
+          - name: CREDITCARDID
+            tests: 
+              - unique
+              - not_null
+      - name: person__person
+        columns:
+          - name: BUSINESSENTITYID
+            tests: 
+              - unique
+              - not_null
+      - name: sales__customer
+        columns:
+          - name: CUSTOMERID
+            tests: 
+              - unique
+              - not_null
+      - name: humanresources__employee
+        columns:
+          - name: BUSINESSENTITYID
+            tests: 
+              - unique
+              - not_null
+      - name: sales__salesorderheader
+        columns:
+          - name: SALESORDERID
+            tests: 
+              - unique
+              - not_null
+      - name: sales__salesorderdetail
+        columns:
+          - name: SALESORDERDETAILID
+            tests: 
+              - unique
+              - not_null
+      - name: sales__salesperson
+        columns:
+          - name: BUSINESSENTITYID
+            tests: 
+              - unique
+              - not_null
+      - name: sales__salesterritory
+        columns:
+          - name: TERRITOYYID
+            tests: 
+              - unique
+              - not_null
