@@ -1,0 +1,65 @@
+version: 1
+
+models:
+  - name: stg_production_product
+    description: "Tabela staging com dados de produtos da fonte raw_production_product"
+    columns:
+      - name: product_id
+        description: "Identificador único do produto"
+        tests:
+          - not_null
+          - unique
+
+      - name: nome
+        description: "Nome do produto"
+        tests:
+          - not_null
+
+      - name: numero_produto
+        description: "Número identificador do produto"
+        tests:
+          - not_null
+
+      - name: flag_fabricar
+        description: "Indica se o produto é fabricado (boolean)"
+        tests:
+          - not_null
+
+      - name: flag_produto_finalizado
+        description: "Indica se o produto é um produto finalizado (boolean)"
+        tests:
+          - not_null
+
+      - name: cor
+        description: "Cor do produto"
+        tests: []
+
+      - name: estoque_seguranca
+        description: "Estoque mínimo de segurança para o produto"
+        tests:
+          - not_null
+
+      - name: ponto_reposicao
+        description: "Ponto para reposição do estoque"
+        tests:
+          - not_null
+
+      - name: custo_padrao
+        description: "Custo padrão do produto"
+        tests:
+          - not_null
+
+      - name: preco_lista
+        description: "Preço de lista do produto"
+        tests:
+          - not_null
+
+      - name: rowguid
+        description: "Identificador global único da linha"
+        tests:
+          - not_null
+
+      - name: data_modificacao
+        description: "Data da última modificação do registro"
+        tests:
+          - not_null

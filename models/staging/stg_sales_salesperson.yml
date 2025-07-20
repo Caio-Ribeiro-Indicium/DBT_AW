@@ -1,0 +1,41 @@
+version: 1
+
+models:
+  - name: stg_sales_salesperson
+    description: "Tabela staging com dados de vendedores da fonte raw_sales_salesperson"
+    columns:
+      - name: business_entity_id
+        description: "Chave primária do vendedor"
+        tests:
+          - not_null
+          - unique
+
+      - name: bonus
+        description: "Bônus recebido pelo vendedor"
+        tests:
+          - not_null
+
+      - name: porcentagem_comissao
+        description: "% de comissão do vendedor"
+        tests:
+          - not_null
+
+      - name: vendas_ano
+        description: "Total de vendas acumuladas no ano atual"
+        tests:
+          - not_null
+
+      - name: vendas_ano_anterior
+        description: "Total de vendas no ano anterior"
+        tests:
+          - not_null
+
+      - name: rowguid
+        description: "Identificador global único da linha"
+        tests:
+          - not_null
+
+      - name: data_modificacao
+        description: "Data da última modificação do registro"
+        tests:
+          - not_null

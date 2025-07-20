@@ -1,0 +1,46 @@
+version: 1
+
+models:
+  - name: stg_sales_salesorderdetail
+    description: "Tabela staging com detalhes dos pedidos de venda da fonte raw_sales_salesorderdetail"
+    columns:
+      - name: salesorderdetail_id
+        description: "Identificador único da linha do pedido de venda"
+        tests:
+          - not_null
+          - unique
+
+      - name: salesorder_id
+        description: "Identificador do pedido de venda"
+        tests:
+          - not_null
+
+      - name: quantidade_pedida
+        description: "Quantidade do produto solicitada no pedido"
+        tests:
+          - not_null
+
+      - name: produto_id
+        description: "Identificador do produto vendido"
+        tests:
+          - not_null
+
+      - name: preco_unitario
+        description: "Preço unitário do produto vendido"
+        tests:
+          - not_null
+
+      - name: desconto_preco_unitario
+        description: "Desconto aplicado ao preço unitário"
+        tests:
+          - not_null
+
+      - name: rowguid
+        description: "Identificador global único da linha"
+        tests:
+          - not_null
+
+      - name: data_modificacao
+        description: "Data da última modificação do registro"
+        tests:
+          - not_null
