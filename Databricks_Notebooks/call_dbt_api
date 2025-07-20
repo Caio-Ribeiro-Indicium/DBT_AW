@@ -1,0 +1,29 @@
+import requests
+
+
+DBT_ACCOUNT_ID = "IDCONTA" ID DA CONTA DBT
+DBT_JOB_ID = "JOBID" #JOB ID 
+DBT_API_TOKEN = "TOKEN" #Token para se conectar ao DBT
+
+
+# -- API endpoint to trigger a job run --
+url = f"URL" #URL PARA SE CONECTAR AO DBT. Formato: {REGIÃOCLOUD}.dbt.com/api/v2/accounts/{DBT_ACCOUNT_ID}/jobs/{DBT_JOB_ID}/run/ o url pode ser trazido diretamente, sem declarar os IDs acima.
+
+# -- Optional: pass custom environment variables, or trigger parameters --
+payload = {
+    "cause": "Triggered from Databricks notebook"
+}
+
+headers = {
+    "Authorization": f"Token {DBT_API_TOKEN}",
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, headers=headers, json=payload)
+
+# -- Handle response --
+if response.status_code == 200:
+    run_id = response.json()["data"]["id"]
+    print(f"✅ dbt Cloud job triggered successfully. Run ID: {run_id}")
+else:
+    print(f"❌ Failed to trigger dbt job: {response.status_code} - {response.text}")
